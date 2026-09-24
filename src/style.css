@@ -39,6 +39,9 @@ input:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 button { font: inherit; flex: 1; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--brand); background: var(--brand); color: #fff; font-weight: 600; cursor: pointer; }
 button.ghost { background: transparent; color: inherit; border-color: var(--border); }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.clear-btns { display: flex; gap: 6px; }
+button.small { flex: none; padding: 6px 10px; font-size: .85rem; font-weight: 600; }
 .error { color: var(--danger); min-height: 1em; }
 footer { margin-top: 16px; color: var(--muted); font-size: .85rem; text-align: center; }
 footer a { color: inherit; }

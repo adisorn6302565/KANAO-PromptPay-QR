@@ -29,7 +29,13 @@
         <span>ชื่อที่แสดงใต้ QR <span class="muted">(ไม่บังคับ)</span></span>
         <input id="name" maxlength="60" placeholder="เช่น ร้านกาแฟ KANAO" />
       </label>
-      <label class="check"><input type="checkbox" id="remember" /> จำเบอร์และชื่อไว้ในเครื่องนี้</label>
+      <div class="row">
+        <label class="check"><input type="checkbox" id="remember" /> จำเบอร์และชื่อไว้ในเครื่องนี้</label>
+        <span class="clear-btns">
+          <button type="button" id="clearAmount" class="ghost small">ล้างยอด</button>
+          <button type="button" id="clearAll" class="ghost small">ล้างทั้งหมด</button>
+        </span>
+      </div>
     </form>
 
     <section id="result" class="result" hidden>

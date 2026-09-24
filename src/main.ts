@@ -117,6 +117,19 @@ $('share').addEventListener('click', async (ev) => {
   setTimeout(() => (btn.textContent = 'คัดลอกลิงก์'), 1500);
 });
 $('print').addEventListener('click', () => window.print());
+$('clearAmount').addEventListener('click', () => {
+  amountEl.value = '';
+  render();
+  amountEl.focus();
+});
+$('clearAll').addEventListener('click', () => {
+  targetEl.value = amountEl.value = nameEl.value = '';
+  history.replaceState(null, '', location.pathname); // drop ?to=&amount= so a reload stays empty
+  render();
+  targetEl.focus();
+});
+// clicking a filled field selects it, so typing replaces the old value
+for (const el of [targetEl, amountEl, nameEl]) el.addEventListener('focus', () => el.select());
 
 for (const el of [targetEl, amountEl, nameEl]) el.addEventListener('input', render);
 rememberEl.addEventListener('change', save);
