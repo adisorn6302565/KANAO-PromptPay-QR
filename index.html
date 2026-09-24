@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b3d6b" />
+  <title>KANAO PromptPay QR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>KANAO PromptPay QR</h1>
+      <p class="sub">สร้าง QR รับเงินพร้อมเพย์ ระบุยอดได้ ทำงานในเบราว์เซอร์ ไม่ส่งข้อมูลออกไปไหน</p>
+    </header>
+
+    <form id="form" autocomplete="off">
+      <label>
+        เบอร์พร้อมเพย์ / เลขบัตรประชาชน / เลขผู้เสียภาษี
+        <input id="target" inputmode="numeric" placeholder="08x-xxx-xxxx" required />
+        <small id="target-hint" class="hint"></small>
+      </label>
+      <label>
+        <span>จำนวนเงิน (บาท) <span class="muted">เว้นว่าง = ผู้จ่ายกรอกเอง</span></span>
+        <input id="amount" inputmode="decimal" placeholder="0.00" />
+      </label>
+      <label>
+        <span>ชื่อที่แสดงใต้ QR <span class="muted">(ไม่บังคับ)</span></span>
+        <input id="name" maxlength="60" placeholder="เช่น ร้านกาแฟ KANAO" />
+      </label>
+      <label class="check"><input type="checkbox" id="remember" /> จำเบอร์และชื่อไว้ในเครื่องนี้</label>
+    </form>
+
+    <section id="result" class="result" hidden>
+      <div id="poster" class="poster">
+        <div class="pp-head">Thai QR Payment · PromptPay</div>
+        <canvas id="qr"></canvas>
+        <div id="out-name" class="out-name"></div>
+        <div id="out-target" class="out-target"></div>
+        <div id="out-amount" class="out-amount"></div>
+      </div>
+      <div class="actions">
+        <button type="button" id="dl">ดาวน์โหลด PNG</button>
+        <button type="button" id="share" class="ghost">คัดลอกลิงก์</button>
+        <button type="button" id="print" class="ghost">พิมพ์</button>
+      </div>
+    </section>
+    <p id="error" class="error" role="alert"></p>
+
+    <footer>สแกนได้กับแอปธนาคารไทยทุกแอป · <a href="https://github.com/adisorn6302565/KANAO-PromptPay-QR">GitHub</a></footer>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
